@@ -7,13 +7,13 @@ import seaborn as sns
 
 # ตั้งค่าหน้าเว็บ
 st.set_page_config(
-    page_title="Customer Segmentation Dashboard",
+    page_title="ระบบวิเคราะห์และจัดกลุ่มลูกค้า",
     page_icon="👥",
     layout="wide"
 )
 
 # ==========================================
-# 📌 ส่วนที่ 1: ข้อมูลผู้พัฒนา (ตามโจทย์สีแดง)
+# 📌 ส่วนที่ 1: ข้อมูลผู้พัฒนา
 # ==========================================
 st.sidebar.title("📌 ข้อมูลผู้พัฒนา")
 st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=120)
@@ -23,24 +23,23 @@ st.sidebar.markdown("""
 **หมู่เรียน:** [ใส่หมู่เรียน]  
 """)
 
-# เส้นแบ่งหน้า
 st.sidebar.markdown("---")
 
-# เมนูหลัก (สอดคล้องตามโจทย์ 5 หัวข้อ)
-st.sidebar.title("📊 Menu")
-page = st.sidebar.selectbox("Choose Page:", [
-    "Home & Problem Statement",
-    "Data Overview & Preprocessing",
-    "ML Model & Theory",
-    "Model Evaluation & Comparison",
-    "Predict Segment"
+# เมนูหลักภาษาไทย (ตรงตามโจทย์อาจารย์ 5 ข้อ)
+st.sidebar.title("📊 เมนูหลัก")
+page = st.sidebar.selectbox("เลือกหน้าเว็บ:", [
+    "1. การกำหนดปัญหาและข้อมูล",
+    "2. ภาพรวมและการเตรียมข้อมูล",
+    "3. โมเดล ML และทฤษฎี",
+    "4. การประเมินและเปรียบเทียบโมเดล",
+    "5. ทดลองการทำนายกลุ่มลูกค้า"
 ])
 
-st.title("👥 Customer Segmentation Dashboard")
+st.title("👥 ระบบวิเคราะห์และจัดกลุ่มลูกค้า (Customer Segmentation)")
 st.markdown("---")
 
 # ==========================================
-# 📌 โหลดข้อมูลและ Model
+# 📌 โหลดข้อมูล
 # ==========================================
 @st.cache_data
 def load_data():
@@ -59,70 +58,70 @@ def load_data():
 df = load_data()
 
 # ==========================================
-# PAGE 1: กำหนดปัญหาและ Dataset
+# หน้าที่ 1: กำหนดปัญหาและ Dataset
 # ==========================================
-if page == "Home & Problem Statement":
-    st.header("🎯 1. การกำหนดปัญหาและ Dataset")
+if page == "1. การกำหนดปัญหาและข้อมูล":
+    st.header("🎯 1. การกำหนดปัญหาและ ชุดข้อมูล (Dataset)")
     st.subheader("ทำไมถึงเลือกข้อมูลชุดนี้มาทำ?")
     st.write("""
-    ในการทำธุรกิจการค้าปลีก (Retail) การเข้าใจพฤติกรรมลูกค้าที่มีความหลากหลายเป็นเรื่องสำคัญ 
+    ในการทำธุรกิจการค้าปลีก (Retail) การเข้าใจพฤติกรรมลูกค้าที่มีความหลากหลายเป็นเรื่องสำคัญมาก 
     โปรเจกต์นี้จึงจัดทำขึ้นเพื่อจัดกลุ่มลูกค้า (**Customer Segmentation**) โดยใช้เกณฑ์ **RFM Analysis**:
-    * **Recency (R):** ระยะเวลาจากการสั่งซื้อครั้งล่าสุด (วัน)
-    * **Frequency (F):** ความถี่ในการสั่งซื้อทั้งหมด (ครั้ง)
-    * **Monetary (M):** ยอดรวมเงินที่ใช้จ่าย (ปอนด์/GBP)
+    * **Recency (R) - ระยะเวลา:** จำนวนวันจากการสั่งซื้อครั้งล่าสุด
+    * **Frequency (F) - ความถี่:** จำนวนครั้งในการสั่งซื้อทั้งหมด
+    * **Monetary (M) - ยอดใช้จ่าย:** จำนวนเงินรวมที่ลูกค้าใช้จ่าย (ปอนด์/GBP)
     
     การวิเคราะห์นี้ช่วยให้ธุรกิจสามารถวางแผนการตลาดตรงกลุ่มเป้าหมาย (Targeted Marketing) และเพิ่มประสิทธิภาพในการดูแลลูกค้ากลุ่มสำคัญได้ดียิ่งขึ้น
     """)
 
 # ==========================================
-# PAGE 2: Data Overview & Preprocessing
+# หน้าที่ 2: ภาพรวมและการเตรียมข้อมูล
 # ==========================================
-elif page == "Data Overview & Preprocessing":
-    st.header("🧹 2. Data Preprocessing & Overview")
+elif page == "2. ภาพรวมและการเตรียมข้อมูล":
+    st.header("🧹 2. ภาพรวมและการทำ Data Preprocessing")
     
     col1, col2, col3 = st.columns(3)
-    col1.metric("Total Customers", len(df))
-    col2.metric("Countries", df['Country'].nunique() if 'Country' in df.columns else 1)
-    col3.metric("Avg Spending", f"£{df['Monetary_TotalSpend_GBP'].mean():.2f}")
+    col1.metric("จำนวนลูกค้าทั้งหมด", f"{len(df)} คน")
+    col2.metric("จำนวนประเทศ", f"{df['Country'].nunique() if 'Country' in df.columns else 1} ประเทศ")
+    col3.metric("ยอดซื้อเฉลี่ย", f"£{df['Monetary_TotalSpend_GBP'].mean():.2f}")
     
-    st.subheader("ตัวอย่างข้อมูล (Dataset)")
+    st.subheader("ตัวอย่างชุดข้อมูล (Dataset)")
     st.dataframe(df.head(10), use_container_width=True)
     
-    st.subheader("กระบวนการ ทำ Data Preprocessing")
+    st.subheader("กระบวนการเตรียมข้อมูล (Data Preprocessing)")
     st.markdown("""
-    1. **Cleaning Data:** จัดการข้อมูลที่สูญหาย (Missing Values) และลบรายการที่เป็นค่าลบ/ผิดปกติ
-    2. **RFM Feature Extraction:** คำนวณค่า Recency, Frequency และ Monetary จากข้อมูล Transaction
-    3. **Outlier Treatment:** จัดการกับข้อมูลที่มีค่าสูงผิดปกติเพื่อป้องกันไม่ให้กระทบต่อโมเดล
-    4. **Feature Scaling:** ปรับสเกลข้อมูลด้วย `StandardScaler` เพื่อให้อยู่ในมาตราส่วนเดียวกันก่อนเข้าโมเดล Clustering
+    1. **การทำความสะอาดข้อมูล (Data Cleaning):** ตรวจสอบและจัดการข้อมูลที่สูญหาย (Missing Values) รวมถึงลบรายการที่ผิดปกติ
+    2. **การสกัดคุณลักษณะ RFM (Feature Extraction):** คำนวณค่า Recency, Frequency และ Monetary จากประวัติการสั่งซื้อ
+    3. **การจัดการค่าผิดปกติ (Outlier Treatment):** จัดการกับข้อมูลที่มีค่าสูงเกินจริงเพื่อไม่ให้ส่งผลกระทบต่อโมเดล
+    4. **การปรับมาตราส่วนข้อมูล (Feature Scaling):** ใช้ `StandardScaler` ปรับข้อมูลให้อยู่ในสเกลเดียวกันก่อนนำไปประมวลผล
     """)
 
 # ==========================================
-# PAGE 3: ML Model & Theory
+# หน้าที่ 3: โมเดล ML และทฤษฎี
 # ==========================================
-elif page == "ML Model & Theory":
-    st.header("🧠 3. การสร้างโมเดล ML และอธิบายทฤษฎี")
+elif page == "3. โมเดล ML และทฤษฎี":
+    st.header("🧠 3. การสร้างโมเดล Machine Learning และอธิบายทฤษฎี")
     st.write("""
-    โปรเจกต์นี้เลือกใช้ อัลกอริทึม **K-Means Clustering** ร่วมกับ **RFM Analysis**:
+    โปรเจกต์นี้เลือกใช้เทคนิค **K-Means Clustering** ร่วมกับการวิเคราะห์ **RFM Analysis**:
     
-    * **K-Means Algorithm:** เป็น Machine Learning แบบ Unsupervised Learning ที่ใช้วิธีจัดกลุ่มข้อมูลโดยคำนวณระยะห่าง (Euclidean Distance) จากจุดศูนย์กลาง (Centroid) ของกลุ่ม
-    * **จำนวน Cluster (K):** หาค่า K ที่เหมาะสมที่สุดผ่านวิธี **Elbow Method** ร่วมกับ **Silhouette Score**
+    * **อัลกอริทึม K-Means:** เป็น Machine Learning ประเภท Unsupervised Learning ที่ใช้จัดกลุ่มข้อมูลที่มีลักษณะใกล้เคียงกัน โดยคำนวณระยะห่าง (Euclidean Distance) จากจุดศูนย์กลาง (Centroid)
+    * **การหาจำนวนกลุ่มที่เหมาะสม (K):** พิจารณาหาค่า K ที่ดีที่สุดผ่านการวิเคราะห์ **Elbow Method** และ **Silhouette Score**
     """)
 
 # ==========================================
-# PAGE 4: Model Evaluation & Comparison
+# หน้าที่ 4: การประเมินและเปรียบเทียบโมเดล
 # ==========================================
-elif page == "Model Evaluation & Comparison":
-    st.header("📊 4. การประเมินและเปรียบเทียบโมเดล")
+elif page == "4. การประเมินและเปรียบเทียบโมเดล":
+    st.header("📊 4. การประเมินและเปรียบเทียบประสิทธิภาพโมเดล")
     
     st.subheader("ตารางเปรียบเทียบประสิทธิภาพโมเดล")
     comparison_df = pd.DataFrame({
-        "Model": ["K-Means (K=3)", "K-Means (K=4)", "Hierarchical Clustering"],
-        "Silhouette Score": [0.45, 0.58, 0.52],
-        "Inertia / WCSS": [1200, 850, 930]
+        "โมเดล (Model)": ["K-Means (K=3)", "K-Means (K=4)", "Hierarchical Clustering"],
+        "คะแนน Silhouette Score": [0.45, 0.58, 0.52],
+        "ค่า ความคลาดเคลื่อน (WCSS/Inertia)": [1200, 850, 930]
     })
     st.table(comparison_df)
     
-    st.subheader("กราฟแสดงการจัดกลุ่ม (Clusters Visualization)")
+    st.subheader("แผนภาพแสดงการจัดกลุ่มลูกค้า (Cluster Visualization)")
     fig, ax = plt.subplots(figsize=(8, 4))
     sns.scatterplot(
         data=df, 
@@ -132,23 +131,25 @@ elif page == "Model Evaluation & Comparison":
         palette='viridis', 
         ax=ax
     )
-    ax.set_title("Recency vs Monetary Distribution")
+    ax.set_title("แผนภาพความสัมพันธ์ Recency vs Monetary")
+    ax.set_xlabel("ระยะเวลาสั่งซื้อล่าสุด (วัน)")
+    ax.set_ylabel("ยอดซื้อรวม (ปอนด์/GBP)")
     st.pyplot(fig)
 
 # ==========================================
-# PAGE 5: Predict Segment
+# หน้าที่ 5: ทดลองการทำนาย
 # ==========================================
-elif page == "Predict Segment":
-    st.header("🔮 5. Predict Customer Segment (ทดลองใช้งาน)")
+elif page == "5. ทดลองการทำนายกลุ่มลูกค้า":
+    st.header("🔮 5. ระบบทำนายกลุ่มลูกค้า (Predict Customer Segment)")
     
     col1, col2 = st.columns(2)
     with col1:
-        recency = st.number_input("Recency (Days)", min_value=1, value=30)
-        frequency = st.number_input("Frequency", min_value=1, value=5)
+        recency = st.number_input("ระยะเวลาสั่งซื้อล่าสุด (Recency - วัน)", min_value=1, value=30)
+        frequency = st.number_input("ความถี่ในการซื้อ (Frequency - ครั้ง)", min_value=1, value=5)
     with col2:
-        monetary = st.number_input("Monetary (GBP)", min_value=0.0, value=500.0)
+        monetary = st.number_input("ยอดเงินที่ใช้จ่าย (Monetary - ปอนด์ GBP)", min_value=0.0, value=500.0)
         
-    if st.button("Predict Segment", type="primary"):
+    if st.button("ทำนายกลุ่มลูกค้า", type="primary"):
         try:
             scaler = pickle.load(open("scaler.pkl", "rb"))
             model = pickle.load(open("model.pkl", "rb"))
