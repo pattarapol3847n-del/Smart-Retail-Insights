@@ -1,0 +1,501 @@
+CustomerID,Recency_Days,Frequency_Transactions,Monetary_TotalSpend_GBP,Country
+12000,48,4,284.84,United Kingdom
+12001,20,19,2426.98,United Kingdom
+12002,34,2,274.97,Spain
+12003,112,23,3298.71,United Kingdom
+12004,1,17,2166.02,United Kingdom
+12005,8,11,1298.07,United Kingdom
+12006,67,14,1003.97,United Kingdom
+12007,105,6,1048.26,United Kingdom
+12008,9,43,4290.3,United Kingdom
+12009,52,10,1274.07,United Kingdom
+12010,134,5,874.28,France
+12011,15,40,2957.43,Germany
+12012,13,4,354.89,United Kingdom
+12013,7,5,301.47,United Kingdom
+12014,15,9,1079.52,United Kingdom
+12015,231,26,922.49,United Kingdom
+12016,101,10,101.48,United Kingdom
+12017,12,15,489.38,France
+12018,102,19,1317.05,United Kingdom
+12019,20,34,4292.24,United Kingdom
+12020,34,15,1277.75,United Kingdom
+12021,169,14,904.8,Australia
+12022,103,41,2772.17,United Kingdom
+12023,25,27,1926.58,United Kingdom
+12024,12,28,4247.74,United Kingdom
+12025,28,4,1336.8,United Kingdom
+12026,1,65,8465.18,United Kingdom
+12027,18,9,481.89,Spain
+12028,96,34,11977.35,United Kingdom
+12029,1,23,1226.68,France
+12030,55,12,3628.7,United Kingdom
+12031,56,64,5688.42,United Kingdom
+12032,7,29,3955.09,United Kingdom
+12033,29,20,1340.54,United Kingdom
+12034,3,21,4215.61,United Kingdom
+12035,133,21,3698.25,United Kingdom
+12036,238,6,479.25,United Kingdom
+12037,4,24,6625.68,United Kingdom
+12038,133,22,4802.12,United Kingdom
+12039,52,9,831.99,United Kingdom
+12040,82,50,15709.85,United Kingdom
+12041,60,5,738.02,United Kingdom
+12042,53,5,65.82,Belgium
+12043,2,19,1794.17,United Kingdom
+12044,15,10,880.28,United Kingdom
+12045,48,29,4076.36,United Kingdom
+12046,88,20,501.13,United Kingdom
+12047,18,21,1705.04,United Kingdom
+12048,21,10,851.28,Germany
+12049,115,6,1106.92,United Kingdom
+12050,222,53,2534.24,United Kingdom
+12051,130,18,3011.64,United Kingdom
+12052,27,29,3269.1,United Kingdom
+12053,55,9,1093.13,United Kingdom
+12054,27,9,986.17,United Kingdom
+12055,25,6,566.41,Germany
+12056,12,1,243.13,United Kingdom
+12057,17,8,1074.29,United Kingdom
+12058,3,11,3560.46,United Kingdom
+12059,43,15,2720.28,United Kingdom
+12060,29,21,3453.0,Portugal
+12061,54,2,548.96,United Kingdom
+12062,60,12,1180.44,United Kingdom
+12063,10,11,787.01,United Kingdom
+12064,163,21,3003.39,United Kingdom
+12065,176,12,2284.18,United Kingdom
+12066,56,21,1461.59,Spain
+12067,30,15,3910.85,Spain
+12068,28,8,971.87,United Kingdom
+12069,14,8,763.96,United Kingdom
+12070,20,9,695.9,United Kingdom
+12071,17,46,11748.63,United Kingdom
+12072,12,21,2639.61,United Kingdom
+12073,204,18,1263.93,Spain
+12074,189,26,3259.22,United Kingdom
+12075,55,11,830.61,United Kingdom
+12076,79,12,2319.38,United Kingdom
+12077,25,19,2955.41,Netherlands
+12078,6,17,3982.28,United Kingdom
+12079,38,22,547.94,United Kingdom
+12080,43,43,7214.03,EIRE
+12081,6,11,1052.42,United Kingdom
+12082,46,13,501.42,United Kingdom
+12083,291,20,1072.9,United Kingdom
+12084,31,20,1697.19,United Kingdom
+12085,25,12,1529.84,United Kingdom
+12086,99,20,9097.69,United Kingdom
+12087,85,11,1898.24,United Kingdom
+12088,23,18,2956.98,United Kingdom
+12089,61,15,1634.11,Belgium
+12090,47,9,1491.25,United Kingdom
+12091,22,23,2925.64,United Kingdom
+12092,8,25,3320.53,United Kingdom
+12093,23,24,3081.44,United Kingdom
+12094,37,19,899.62,United Kingdom
+12095,65,28,1837.3,United Kingdom
+12096,18,83,5629.92,United Kingdom
+12097,62,44,2897.11,United Kingdom
+12098,14,24,3417.28,United Kingdom
+12099,65,9,2215.3,United Kingdom
+12100,91,38,3344.85,United Kingdom
+12101,91,11,4484.5,Germany
+12102,57,24,4636.48,United Kingdom
+12103,23,37,5745.84,United Kingdom
+12104,72,17,3188.81,United Kingdom
+12105,118,58,17381.19,United Kingdom
+12106,59,27,2764.76,United Kingdom
+12107,243,16,2559.96,Switzerland
+12108,226,23,4115.21,United Kingdom
+12109,11,45,12930.67,United Kingdom
+12110,2,22,3323.02,United Kingdom
+12111,11,26,2996.73,United Kingdom
+12112,155,2,356.28,United Kingdom
+12113,185,10,335.03,United Kingdom
+12114,15,38,10914.37,United Kingdom
+12115,27,11,1790.96,Germany
+12116,48,25,4419.98,Australia
+12117,20,7,1339.06,United Kingdom
+12118,38,6,581.58,EIRE
+12119,72,1,68.68,United Kingdom
+12120,42,12,2355.97,United Kingdom
+12121,76,12,1773.76,United Kingdom
+12122,45,6,1054.97,Netherlands
+12123,1,5,1656.43,Belgium
+12124,31,23,2542.41,United Kingdom
+12125,41,24,696.52,Portugal
+12126,31,29,4240.86,United Kingdom
+12127,27,19,3082.04,United Kingdom
+12128,42,3,617.85,United Kingdom
+12129,36,14,2015.82,United Kingdom
+12130,6,25,3114.93,United Kingdom
+12131,20,26,2271.22,United Kingdom
+12132,173,10,3810.15,United Kingdom
+12133,2,5,380.73,Belgium
+12134,3,26,1921.85,United Kingdom
+12135,20,6,1043.05,Germany
+12136,53,41,9551.08,United Kingdom
+12137,282,11,648.13,United Kingdom
+12138,295,8,737.15,United Kingdom
+12139,299,17,1622.38,United Kingdom
+12140,7,13,1935.06,United Kingdom
+12141,66,21,1808.32,United Kingdom
+12142,45,31,1791.03,Belgium
+12143,12,54,3887.62,United Kingdom
+12144,172,9,950.72,United Kingdom
+12145,17,13,1795.84,Germany
+12146,365,6,409.76,EIRE
+12147,53,31,4028.74,Netherlands
+12148,13,30,1936.62,United Kingdom
+12149,30,21,2518.74,United Kingdom
+12150,13,22,2290.14,United Kingdom
+12151,32,31,2556.47,United Kingdom
+12152,55,2,487.84,United Kingdom
+12153,76,3,377.11,Portugal
+12154,41,36,5755.77,Portugal
+12155,23,22,4983.93,United Kingdom
+12156,52,12,3038.4,United Kingdom
+12157,35,39,2696.24,United Kingdom
+12158,27,24,3162.52,United Kingdom
+12159,24,5,405.78,United Kingdom
+12160,15,32,3807.2,United Kingdom
+12161,37,7,1468.03,United Kingdom
+12162,41,6,716.98,United Kingdom
+12163,138,26,1866.21,United Kingdom
+12164,79,25,7526.16,United Kingdom
+12165,89,26,5072.71,United Kingdom
+12166,29,13,2973.27,United Kingdom
+12167,26,9,1608.28,United Kingdom
+12168,64,8,482.67,United Kingdom
+12169,75,6,1996.65,United Kingdom
+12170,8,9,359.65,United Kingdom
+12171,9,4,647.83,United Kingdom
+12172,37,14,2435.05,United Kingdom
+12173,11,46,1956.77,United Kingdom
+12174,196,5,661.09,Spain
+12175,110,13,1982.86,United Kingdom
+12176,45,24,4609.55,United Kingdom
+12177,15,3,659.33,United Kingdom
+12178,9,16,878.7,United Kingdom
+12179,232,19,2564.37,United Kingdom
+12180,74,9,2662.42,Spain
+12181,118,12,1636.16,United Kingdom
+12182,30,36,1527.14,United Kingdom
+12183,18,51,9353.94,France
+12184,22,28,4857.42,United Kingdom
+12185,117,6,848.15,United Kingdom
+12186,39,10,621.36,United Kingdom
+12187,66,36,11087.8,United Kingdom
+12188,99,7,1254.18,United Kingdom
+12189,18,28,3172.99,United Kingdom
+12190,5,6,418.42,United Kingdom
+12191,80,12,1428.3,United Kingdom
+12192,196,3,526.57,United Kingdom
+12193,185,20,3686.93,United Kingdom
+12194,41,23,1615.76,United Kingdom
+12195,61,9,319.16,United Kingdom
+12196,80,19,2218.79,United Kingdom
+12197,140,13,526.33,Germany
+12198,11,5,592.35,France
+12199,32,61,10854.96,United Kingdom
+12200,33,35,6944.41,United Kingdom
+12201,72,55,8877.73,United Kingdom
+12202,34,28,2027.37,United Kingdom
+12203,118,10,1313.88,United Kingdom
+12204,113,87,8482.3,United Kingdom
+12205,5,5,549.08,United Kingdom
+12206,22,18,1161.89,United Kingdom
+12207,234,33,3775.72,United Kingdom
+12208,3,11,1901.68,United Kingdom
+12209,41,62,9930.14,Belgium
+12210,183,20,2089.18,United Kingdom
+12211,100,20,1929.61,United Kingdom
+12212,21,17,1565.82,United Kingdom
+12213,55,22,552.54,United Kingdom
+12214,34,3,299.22,United Kingdom
+12215,54,5,787.21,United Kingdom
+12216,135,30,3458.42,United Kingdom
+12217,49,6,1027.3,United Kingdom
+12218,41,14,1693.19,United Kingdom
+12219,24,5,754.0,United Kingdom
+12220,19,12,833.27,France
+12221,47,3,391.76,United Kingdom
+12222,6,28,4137.8,United Kingdom
+12223,61,18,2643.14,France
+12224,96,20,4921.28,Netherlands
+12225,186,11,1865.06,United Kingdom
+12226,70,20,1100.24,United Kingdom
+12227,41,16,7567.85,United Kingdom
+12228,40,5,520.29,United Kingdom
+12229,205,15,977.44,United Kingdom
+12230,15,35,5481.53,United Kingdom
+12231,32,20,4148.7,United Kingdom
+12232,275,29,1625.19,United Kingdom
+12233,2,5,593.84,Germany
+12234,73,11,897.08,France
+12235,2,35,7884.22,Netherlands
+12236,24,21,3060.48,United Kingdom
+12237,5,5,441.53,United Kingdom
+12238,4,31,4120.74,United Kingdom
+12239,8,11,1392.56,United Kingdom
+12240,12,16,5438.86,United Kingdom
+12241,60,18,3181.64,United Kingdom
+12242,35,17,2810.88,United Kingdom
+12243,107,24,4844.79,United Kingdom
+12244,17,5,1355.83,United Kingdom
+12245,13,10,577.87,United Kingdom
+12246,75,21,787.98,United Kingdom
+12247,118,6,914.55,United Kingdom
+12248,50,32,752.68,United Kingdom
+12249,74,16,1437.57,United Kingdom
+12250,56,18,3000.25,United Kingdom
+12251,50,11,351.48,United Kingdom
+12252,119,29,7532.55,United Kingdom
+12253,152,39,6566.67,United Kingdom
+12254,114,31,3218.29,United Kingdom
+12255,18,33,7957.89,Germany
+12256,127,23,3109.47,United Kingdom
+12257,35,11,1194.41,United Kingdom
+12258,79,7,865.85,United Kingdom
+12259,32,3,548.74,United Kingdom
+12260,13,40,3015.32,United Kingdom
+12261,74,3,870.38,United Kingdom
+12262,17,20,2361.26,Belgium
+12263,115,9,2193.15,United Kingdom
+12264,105,5,279.44,Germany
+12265,45,6,793.18,Germany
+12266,30,31,2471.43,United Kingdom
+12267,54,14,1281.67,United Kingdom
+12268,9,20,3055.49,United Kingdom
+12269,100,23,5736.39,United Kingdom
+12270,203,10,927.36,Spain
+12271,91,12,1449.61,United Kingdom
+12272,17,10,1197.42,United Kingdom
+12273,122,8,1283.36,United Kingdom
+12274,100,20,849.36,United Kingdom
+12275,4,6,1129.17,United Kingdom
+12276,16,54,11271.3,United Kingdom
+12277,54,63,7323.89,United Kingdom
+12278,9,15,2999.09,United Kingdom
+12279,69,34,2121.29,United Kingdom
+12280,292,14,2456.49,Germany
+12281,21,23,2291.45,United Kingdom
+12282,86,13,1642.88,United Kingdom
+12283,3,8,1501.32,United Kingdom
+12284,25,11,596.46,United Kingdom
+12285,174,14,3443.94,United Kingdom
+12286,61,23,1912.53,United Kingdom
+12287,56,27,2694.13,United Kingdom
+12288,159,33,6582.22,United Kingdom
+12289,13,11,315.67,United Kingdom
+12290,2,15,1983.38,United Kingdom
+12291,13,15,1526.09,United Kingdom
+12292,45,14,2500.75,United Kingdom
+12293,42,4,589.99,United Kingdom
+12294,97,5,897.62,United Kingdom
+12295,118,29,15404.04,EIRE
+12296,15,32,6192.29,United Kingdom
+12297,35,15,1904.87,United Kingdom
+12298,33,20,1578.28,United Kingdom
+12299,4,30,2919.26,United Kingdom
+12300,1,18,2436.3,Netherlands
+12301,94,27,1244.85,United Kingdom
+12302,20,15,203.84,United Kingdom
+12303,76,13,1115.97,United Kingdom
+12304,33,8,367.94,United Kingdom
+12305,10,18,2768.4,United Kingdom
+12306,13,7,726.9,Switzerland
+12307,23,7,1503.14,United Kingdom
+12308,99,26,11482.04,United Kingdom
+12309,1,4,324.03,United Kingdom
+12310,4,28,5272.36,United Kingdom
+12311,51,48,15816.2,United Kingdom
+12312,70,13,2606.24,United Kingdom
+12313,78,5,1811.95,EIRE
+12314,40,23,2466.55,United Kingdom
+12315,28,16,1576.83,United Kingdom
+12316,110,5,422.42,United Kingdom
+12317,37,6,517.23,United Kingdom
+12318,24,4,745.8,United Kingdom
+12319,6,9,209.68,United Kingdom
+12320,4,5,773.98,Germany
+12321,6,34,3912.18,United Kingdom
+12322,69,61,13833.73,United Kingdom
+12323,69,17,1521.23,United Kingdom
+12324,17,25,2625.98,United Kingdom
+12325,62,28,4569.56,United Kingdom
+12326,5,44,7466.85,United Kingdom
+12327,124,30,3534.97,United Kingdom
+12328,7,9,1878.69,United Kingdom
+12329,12,12,308.0,Germany
+12330,38,23,2485.18,United Kingdom
+12331,90,9,1641.79,United Kingdom
+12332,116,28,1137.79,United Kingdom
+12333,15,25,1661.37,Germany
+12334,5,26,4845.35,United Kingdom
+12335,94,1,33.27,United Kingdom
+12336,48,23,1966.9,United Kingdom
+12337,93,14,401.09,United Kingdom
+12338,152,8,1661.19,United Kingdom
+12339,40,29,886.44,United Kingdom
+12340,37,32,3061.65,United Kingdom
+12341,55,6,273.33,United Kingdom
+12342,55,5,407.62,Portugal
+12343,43,24,1527.33,United Kingdom
+12344,22,8,1268.79,United Kingdom
+12345,47,12,1309.5,Switzerland
+12346,156,13,2008.4,United Kingdom
+12347,212,13,3244.8,United Kingdom
+12348,31,3,553.91,United Kingdom
+12349,97,12,2616.11,United Kingdom
+12350,61,13,2069.23,United Kingdom
+12351,16,3,580.91,United Kingdom
+12352,4,16,847.85,United Kingdom
+12353,2,15,1471.59,United Kingdom
+12354,8,23,2628.77,United Kingdom
+12355,15,20,2430.44,United Kingdom
+12356,106,11,1262.61,United Kingdom
+12357,21,68,4821.89,Netherlands
+12358,92,24,2592.74,United Kingdom
+12359,43,26,4276.33,United Kingdom
+12360,9,23,5207.43,United Kingdom
+12361,91,28,4531.69,United Kingdom
+12362,153,4,330.9,United Kingdom
+12363,172,52,5217.83,United Kingdom
+12364,74,5,102.72,Switzerland
+12365,72,45,5065.9,United Kingdom
+12366,48,25,3446.98,United Kingdom
+12367,28,36,5415.56,United Kingdom
+12368,243,14,1273.72,France
+12369,5,2,307.32,United Kingdom
+12370,137,14,1555.05,United Kingdom
+12371,19,7,1189.04,United Kingdom
+12372,52,33,2182.38,United Kingdom
+12373,44,16,2391.37,United Kingdom
+12374,49,19,2543.14,United Kingdom
+12375,63,39,6078.01,United Kingdom
+12376,13,4,1062.8,Switzerland
+12377,20,28,1952.11,United Kingdom
+12378,10,22,1264.24,United Kingdom
+12379,2,19,940.26,United Kingdom
+12380,169,23,118.82,United Kingdom
+12381,26,29,5135.88,United Kingdom
+12382,7,1,82.44,United Kingdom
+12383,29,38,5708.94,United Kingdom
+12384,30,24,6370.06,Spain
+12385,66,10,955.86,United Kingdom
+12386,17,11,1821.74,United Kingdom
+12387,65,21,2502.35,France
+12388,7,39,4769.91,Switzerland
+12389,53,5,401.01,France
+12390,7,6,2305.76,United Kingdom
+12391,48,20,4822.76,United Kingdom
+12392,45,31,1162.25,United Kingdom
+12393,22,18,2156.88,United Kingdom
+12394,37,24,4270.48,United Kingdom
+12395,3,1,65.67,United Kingdom
+12396,55,30,2988.05,United Kingdom
+12397,1,25,4134.44,United Kingdom
+12398,42,38,11452.34,United Kingdom
+12399,42,16,3166.53,France
+12400,4,16,5516.04,United Kingdom
+12401,180,12,1099.09,United Kingdom
+12402,57,16,1174.19,United Kingdom
+12403,67,17,2454.66,United Kingdom
+12404,38,13,851.18,United Kingdom
+12405,74,18,1275.58,United Kingdom
+12406,12,11,1581.51,United Kingdom
+12407,63,24,6590.85,Spain
+12408,51,25,3570.25,United Kingdom
+12409,185,11,1926.32,United Kingdom
+12410,96,23,2055.24,United Kingdom
+12411,53,11,282.1,United Kingdom
+12412,37,32,2613.22,United Kingdom
+12413,81,42,7889.66,Switzerland
+12414,101,2,163.32,United Kingdom
+12415,158,12,694.25,United Kingdom
+12416,106,24,2497.11,United Kingdom
+12417,2,11,1503.86,United Kingdom
+12418,89,16,3285.56,United Kingdom
+12419,45,29,3096.07,United Kingdom
+12420,130,9,466.52,United Kingdom
+12421,37,20,2728.48,United Kingdom
+12422,47,19,1532.13,United Kingdom
+12423,144,31,1730.54,United Kingdom
+12424,49,10,1854.03,Spain
+12425,13,43,7082.37,United Kingdom
+12426,69,10,1750.57,Netherlands
+12427,1,5,1193.01,United Kingdom
+12428,29,28,5448.71,United Kingdom
+12429,100,26,6752.91,United Kingdom
+12430,52,21,2621.69,United Kingdom
+12431,10,7,414.9,United Kingdom
+12432,25,11,1978.51,United Kingdom
+12433,182,26,3027.26,Spain
+12434,2,20,2042.28,United Kingdom
+12435,91,21,2630.7,United Kingdom
+12436,13,10,3351.81,United Kingdom
+12437,15,1,78.85,United Kingdom
+12438,64,22,1487.38,United Kingdom
+12439,10,15,1142.21,United Kingdom
+12440,29,18,4932.18,France
+12441,32,5,654.84,United Kingdom
+12442,65,7,456.97,United Kingdom
+12443,44,12,1612.6,United Kingdom
+12444,40,30,6046.58,Spain
+12445,45,18,5227.98,United Kingdom
+12446,99,30,2500.2,United Kingdom
+12447,98,30,2492.52,United Kingdom
+12448,10,13,2279.0,United Kingdom
+12449,302,40,9844.33,United Kingdom
+12450,5,7,387.37,United Kingdom
+12451,329,25,5656.65,United Kingdom
+12452,8,5,396.85,United Kingdom
+12453,4,27,2161.68,United Kingdom
+12454,74,5,1808.09,United Kingdom
+12455,195,45,9014.63,United Kingdom
+12456,75,20,2022.2,United Kingdom
+12457,66,14,512.62,United Kingdom
+12458,9,14,1160.16,EIRE
+12459,12,15,1892.8,United Kingdom
+12460,11,15,2433.8,United Kingdom
+12461,6,23,1951.85,United Kingdom
+12462,215,18,1111.64,United Kingdom
+12463,43,24,5636.44,United Kingdom
+12464,36,10,1981.17,United Kingdom
+12465,25,39,12876.18,Spain
+12466,41,38,3034.83,United Kingdom
+12467,10,29,4238.51,United Kingdom
+12468,10,13,2154.92,Germany
+12469,102,18,4553.99,United Kingdom
+12470,15,21,2194.22,United Kingdom
+12471,6,7,1580.95,United Kingdom
+12472,30,6,470.78,United Kingdom
+12473,135,69,7182.03,Portugal
+12474,34,20,3500.99,United Kingdom
+12475,88,33,1810.28,United Kingdom
+12476,322,8,438.56,United Kingdom
+12477,2,21,2507.3,United Kingdom
+12478,7,29,3785.1,United Kingdom
+12479,72,36,3352.47,Germany
+12480,133,25,4560.49,United Kingdom
+12481,41,9,683.61,United Kingdom
+12482,5,22,3248.62,United Kingdom
+12483,6,9,2599.82,United Kingdom
+12484,7,21,2367.07,United Kingdom
+12485,14,22,1806.29,United Kingdom
+12486,126,3,382.24,Netherlands
+12487,173,4,455.93,France
+12488,9,6,740.49,United Kingdom
+12489,118,17,1187.74,United Kingdom
+12490,85,43,2861.93,United Kingdom
+12491,70,19,1911.8,EIRE
+12492,117,33,3687.8,Germany
+12493,16,2,165.84,United Kingdom
+12494,44,24,3594.23,United Kingdom
+12495,26,22,2004.4,United Kingdom
+12496,65,3,561.37,United Kingdom
+12497,20,10,1835.64,United Kingdom
+12498,42,13,731.99,United Kingdom
+12499,22,23,4661.36,United Kingdom
