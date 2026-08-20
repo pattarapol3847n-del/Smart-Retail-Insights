@@ -13,11 +13,10 @@ st.set_page_config(
 )
 
 # ==========================================
-# 🎨 ตกแต่งพื้นหลังด้วย CSS (ธีม Computer Science / Tech)
+# 🎨 ตกแต่งพื้นหลังด้วย CSS
 # ==========================================
 tech_bg_css = """
 <style>
-/* พื้นหลังหลักของแอป */
 .stApp {
     background-image: linear-gradient(rgba(14, 17, 23, 0.88), rgba(14, 17, 23, 0.88)), 
                       url("https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1920&auto=format&fit=crop");
@@ -26,8 +25,6 @@ tech_bg_css = """
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-
-/* ปรับแต่ง Sidebar ให้ดูโมเดิร์นเข้ากัน */
 [data-testid="stSidebar"] {
     background-color: rgba(20, 24, 33, 0.85) !important;
     backdrop-filter: blur(10px);
@@ -41,13 +38,11 @@ st.markdown(tech_bg_css, unsafe_allow_html=True)
 # ==========================================
 st.sidebar.title("📌 ข้อมูลผู้พัฒนา")
 
-# โหลดรูป me.png จากใน GitHub Repository
 try:
     st.sidebar.image("me.png", width=140)
 except Exception:
     st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=120)
 
-# แสดงข้อมูลผู้พัฒนา เน้นตัวหนังสือใน [ ] เป็นสีส้ม
 st.sidebar.markdown("""
 **ชื่อ-นามสกุล:** [<span style="color: #FF8C00; font-weight: bold;">นายภัทรพล แก้วแท้</span>]  
 **รหัสนักศึกษา:** [<span style="color: #FF8C00; font-weight: bold;">664245029</span>]  
@@ -56,7 +51,6 @@ st.sidebar.markdown("""
 
 st.sidebar.markdown("---")
 
-# เมนูหลักภาษาไทย
 st.sidebar.title("📊 เมนูหลัก")
 page = st.sidebar.selectbox("เลือกหน้าเว็บ:", [
     "1. การกำหนดปัญหาและข้อมูล",
@@ -70,26 +64,42 @@ st.title("👥 ระบบวิเคราะห์และจัดกล�
 st.markdown("---")
 
 # ==========================================
-# 📌 โหลดข้อมูล
+# 📌 โหลดข้อมูล Dataset
 # ==========================================
 @st.cache_data
 def load_data():
     try:
         df = pd.read_csv("Online_Retail_Customer_Segmentation.csv")
     except Exception:
-        try:
-            df = pd.read_csv("data.csv")
-        except Exception:
-            df = pd.DataFrame({
-                'CustomerID': range(12000, 12500),
-                'Recency_Days': np.random.randint(1, 100, 500),
-                'Frequency_Transactions': np.random.randint(1, 30, 500),
-                'Monetary_TotalSpend_GBP': np.random.uniform(100, 5000, 500).round(2),
-                'Country': np.random.choice(['United Kingdom', 'Spain', 'Germany', 'France'], 500)
-            })
+        df = pd.DataFrame({
+            'CustomerID': range(12000, 12500),
+            'Recency_Days': np.random.randint(1, 100, 500),
+            'Frequency_Transactions': np.random.randint(1, 30, 500),
+            'Monetary_TotalSpend_GBP': np.random.uniform(100, 5000, 500).round(2),
+            'Country': np.random.choice(['United Kingdom', 'Spain', 'Germany', 'France'], 500)
+        })
     return df
 
 df = load_data()
+
+# ==========================================
+# 📌 ฟังก์ชันโหลดไฟล์ Pickle (.pkl) แบบมี Caching
+# ==========================================
+@st.cache_resource
+def load_ml_assets():
+    with open("scaler.pkl", "rb") as f:
+        scaler = pickle.load(f)
+    with open("best_model.pkl", "rb") as f:
+        model = pickle.load(f)
+        
+    encoded_cols = None
+    try:
+        with open("encoded_columns.pkl", "rb") as f:
+            encoded_cols = pickle.load(f)
+    except Exception:
+        pass
+
+    return scaler, model, encoded_cols
 
 # ==========================================
 # หน้าที่ 1: กำหนดปัญหาและ Dataset
@@ -171,10 +181,10 @@ elif page == "4. การประเมินและเปรียบเท
     st.pyplot(fig)
 
 # ==========================================
-# หน้าที่ 5: ทดลองการทำนาย (เชื่อมต่อกับ best_model.pkl)
+# หน้าที่ 5: การทำนายจริงจากโมเดล ML (Real Calculation)
 # ==========================================
 elif page == "5. ทดลองการทำนายกลุ่มลูกค้า":
-    st.header("🔮 5. ระบบทำนายกลุ่มลูกค้า (Predict Customer Segment)")
+    st.header("🔮 5. ระบบทำนายกลุ่มลูกค้าด้วยโมเดลจริง (Machine Learning Prediction)")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -183,20 +193,51 @@ elif page == "5. ทดลองการทำนายกลุ่มลูก
     with col2:
         monetary = st.number_input("ยอดเงินที่ใช้จ่าย (Monetary - ปอนด์ GBP)", min_value=0.0, value=500.0)
         
-    if st.button("ทำนายกลุ่มลูกค้า", type="primary"):
+    if st.button("ทำนายกลุ่มลูกค้าด้วย ML Model", type="primary"):
         try:
-            scaler = pickle.load(open("scaler.pkl", "rb"))
-            # เรียกใช้ชื่อไฟล์ best_model.pkl ตรงตามที่คุณมีใน GitHub
-            model = pickle.load(open("best_model.pkl", "rb"))
+            # โหลดสินทรัพย์ ML
+            scaler, model, encoded_cols = load_ml_assets()
             
-            input_data = np.array([[recency, frequency, monetary]])
-            input_scaled = scaler.transform(input_data)
+            # ตรวจสอบ Feature ทั้งหมดที่ Scaler ต้องการ
+            n_expected_features = scaler.n_features_in_ if hasattr(scaler, 'n_features_in_') else 3
+            
+            if encoded_cols is not None and len(encoded_cols) == n_expected_features:
+                # กรณีที่โมเดลใช้ One-Hot Encoding หรือมีคอลัมน์อื่นเพิ่มเติม
+                input_df = pd.DataFrame(0, index=[0], columns=encoded_cols)
+                
+                # แมปค่า RFM ลงใน DataFrame
+                for col in input_df.columns:
+                    if 'recency' in col.lower():
+                        input_df[col] = recency
+                    elif 'frequency' in col.lower():
+                        input_df[col] = frequency
+                    elif 'monetary' in col.lower() or 'spend' in col.lower():
+                        input_df[col] = monetary
+                        
+                input_scaled = scaler.transform(input_df)
+            else:
+                # กรณีโมเดลใช้เฉพาะค่า RFM (3 Features)
+                input_data = np.array([[recency, frequency, monetary]])
+                
+                # หาก Scaler ต้องการคอลัมน์มากกว่า 3 ให้เติม 0 ให้ครบตามจำนวน
+                if input_data.shape[1] < n_expected_features:
+                    padding = np.zeros((1, n_expected_features - input_data.shape[1]))
+                    input_data = np.hstack([input_data, padding])
+                    
+                input_scaled = scaler.transform(input_data)
+            
+            # คำนวณทำนายด้วยโมเดลจริง
             prediction = model.predict(input_scaled)[0]
             
-            st.success(f"🎉 ผลการทำนายจากโมเดลจริง: ลูกค้าท่านนี้จัดอยู่ใน **Segment กลุ่มที่ {prediction}**")
+            # แสดงผลการคำนวณจริง
+            st.success(f"✅ **ผลการทำนายจริงจากโมเดล (`best_model.pkl`):** ลูกค้าถูกจัดอยู่ใน **Cluster / Segment กลุ่มที่ {prediction}**")
+            
+            # แสดงรายละเอียดข้อมูลที่ส่งเข้าคำนวณ
+            with st.expander("🔍 ดูรายละเอียดเวกเตอร์ข้อมูลที่ส่งเข้าโมเดลคำนวณ (Processed Features)"):
+                st.write("**ค่าที่ผ่านการ Scaling (StandardScaler):**")
+                st.write(input_scaled)
+                
         except Exception as e:
-            st.warning("⚠️ ระบบทำนายจำลอง (เนื่องจากระบบโหลดไฟล์โมเดลไม่สำเร็จ)")
-            if monetary > 1000 and frequency > 10:
-                st.success("🎉 ผลการทำนาย: **High-Value Customer (ลูกค้าชั้นดี)**")
-            else:
-                st.info("🎉 ผลการทำนาย: **Regular Customer (ลูกค้าทั่วไป)**")
+            # แสดงข้อผิดพลาดจริงหากเกิดปัญหาทางเทคนิค
+            st.error(f"❌ เกิดข้อผิดพลาดในการคำนวณจากไฟล์โมเดล: {e}")
+            st.info("💡 โปรดตรวจสอบว่าไฟล์ `scaler.pkl` และ `best_model.pkl` ใน GitHub ถูกต้องและสมบูรณ์")
