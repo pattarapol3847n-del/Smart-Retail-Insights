@@ -13,6 +13,30 @@ st.set_page_config(
 )
 
 # ==========================================
+# 🎨 ตกแต่งพื้นหลังด้วย CSS (ธีม Computer Science / Tech)
+# ==========================================
+tech_bg_css = """
+<style>
+/* พื้นหลังหลักของแอป */
+.stApp {
+    background-image: linear-gradient(rgba(14, 17, 23, 0.88), rgba(14, 17, 23, 0.88)), 
+                      url("https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1920&auto=format&fit=crop");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* ปรับแต่ง Sidebar ให้ดูโมเดิร์นเข้ากัน */
+[data-testid="stSidebar"] {
+    background-color: rgba(20, 24, 33, 0.85) !important;
+    backdrop-filter: blur(10px);
+}
+</style>
+"""
+st.markdown(tech_bg_css, unsafe_allow_html=True)
+
+# ==========================================
 # 📌 ส่วนที่ 1: ข้อมูลผู้พัฒนา
 # ==========================================
 st.sidebar.title("📌 ข้อมูลผู้พัฒนา")
@@ -25,7 +49,7 @@ st.sidebar.markdown("""
 
 st.sidebar.markdown("---")
 
-# เมนูหลักภาษาไทย (ตรงตามโจทย์อาจารย์ 5 ข้อ)
+# เมนูหลักภาษาไทย
 st.sidebar.title("📊 เมนูหลัก")
 page = st.sidebar.selectbox("เลือกหน้าเว็บ:", [
     "1. การกำหนดปัญหาและข้อมูล",
