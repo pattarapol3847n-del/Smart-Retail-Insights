@@ -40,12 +40,19 @@ st.markdown(tech_bg_css, unsafe_allow_html=True)
 # 📌 ส่วนที่ 1: ข้อมูลผู้พัฒนา
 # ==========================================
 st.sidebar.title("📌 ข้อมูลผู้พัฒนา")
-st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=120)
+
+# ดึงรูป me.png จากใน Repository (ถ้ายังไม่อัปโหลดรูป รูปสำรองจะทำงานแทนอัตโนมัติ)
+try:
+    st.sidebar.image("me.png", width=140)
+except:
+    st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=120)
+
+# แสดงข้อมูลโดยเน้นสีส้มเฉพาะข้อความในวงเล็บ
 st.sidebar.markdown("""
-**ชื่อ-นามสกุล:** [นายภัทรพล แก้วแท้]  
-**รหัสนักศึกษา:** [664245029]  
-**หมู่เรียน:** [66/43]  
-""")
+**ชื่อ-นามสกุล:** [<span style="color: #FF8C00;">นายภัทรพล แก้วแท้</span>]  
+**รหัสนักศึกษา:** [<span style="color: #FF8C00;">664245029</span>]  
+**หมู่เรียน:** [<span style="color: #FF8C00;">66/43</span>]  
+""", unsafe_allow_html=True)
 
 st.sidebar.markdown("---")
 
