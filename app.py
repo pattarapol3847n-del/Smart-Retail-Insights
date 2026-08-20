@@ -42,9 +42,9 @@ st.markdown(tech_bg_css, unsafe_allow_html=True)
 st.sidebar.title("📌 ข้อมูลผู้พัฒนา")
 st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=120)
 st.sidebar.markdown("""
-**ชื่อ-นามสกุล:** [ใส่ชื่อ-นามสกุลของคุณ]  
-**รหัสนักศึกษา:** [ใส่รหัสนักศึกษา]  
-**หมู่เรียน:** [ใส่หมู่เรียน]  
+**ชื่อ-นามสกุล:** [นายภัทรพล แก้วแท้]  
+**รหัสนักศึกษา:** [664245029]  
+**หมู่เรียน:** [66/43]  
 """)
 
 st.sidebar.markdown("---")
