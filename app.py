@@ -16,23 +16,23 @@ st.set_page_config(
 # 📌 ส่วนที่ 1: ข้อมูลผู้พัฒนา (ตามโจทย์สีแดง)
 # ==========================================
 st.sidebar.title("📌 ข้อมูลผู้พัฒนา")
-# สามารถเปลี่ยน URL รูปภาพตรงนี้เป็นรูปของคุณเองได้ครับ
-st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=120) 
+st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=120)
 st.sidebar.markdown("""
 **ชื่อ-นามสกุล:** [ใส่ชื่อ-นามสกุลของคุณ]  
 **รหัสนักศึกษา:** [ใส่รหัสนักศึกษา]  
-**หมู่เรียน:** [ใส่หมู่เรียน เช่น 64/xx]  
+**หมู่เรียน:** [ใส่หมู่เรียน]  
 """)
 
-st.sidebar.hr()
+# เส้นแบ่งหน้า
+st.sidebar.markdown("---")
 
-# เมนูหลัก (ปรับให้สอดคล้องกับ 5 หัวข้อในโจทย์)
+# เมนูหลัก (สอดคล้องตามโจทย์ 5 หัวข้อ)
 st.sidebar.title("📊 Menu")
 page = st.sidebar.selectbox("Choose Page:", [
-    "Home & Problem Statement", 
-    "Data Overview & Preprocessing", 
-    "ML Model & Theory", 
-    "Model Evaluation & Comparison", 
+    "Home & Problem Statement",
+    "Data Overview & Preprocessing",
+    "ML Model & Theory",
+    "Model Evaluation & Comparison",
     "Predict Segment"
 ])
 
@@ -40,15 +40,13 @@ st.title("👥 Customer Segmentation Dashboard")
 st.markdown("---")
 
 # ==========================================
-# 📌 โหลดข้อมูลและ Model (จัดการ Cache ไว้)
+# 📌 โหลดข้อมูลและ Model
 # ==========================================
 @st.cache_data
 def load_data():
-    # โหลดไฟล์ข้อมูลของคุณ (เปลี่ยนชื่อไฟล์ตามที่มีใน repo)
     try:
         df = pd.read_csv("data.csv")
     except:
-        # จำลองข้อมูลป้องกัน Error กรณีหาไฟล์ไม่พบ
         df = pd.DataFrame({
             'CustomerID': range(12000, 12500),
             'Recency_Days': np.random.randint(1, 100, 500),
@@ -138,7 +136,7 @@ elif page == "Model Evaluation & Comparison":
     st.pyplot(fig)
 
 # ==========================================
-# PAGE 5: Predict Segment (แก้บั๊ก ValueError แล้ว)
+# PAGE 5: Predict Segment
 # ==========================================
 elif page == "Predict Segment":
     st.header("🔮 5. Predict Customer Segment (ทดลองใช้งาน)")
@@ -152,19 +150,16 @@ elif page == "Predict Segment":
         
     if st.button("Predict Segment", type="primary"):
         try:
-            # โหลด scaler และ model
             scaler = pickle.load(open("scaler.pkl", "rb"))
             model = pickle.load(open("model.pkl", "rb"))
             
-            # 🛠️ แก้บั๊ก ValueError โดยใส่ .values เพื่อหลีกเลี่ยง Feature Name Mismatch
             input_data = np.array([[recency, frequency, monetary]])
             input_scaled = scaler.transform(input_data)
             prediction = model.predict(input_scaled)[0]
             
             st.success(f"🎉 ผลการทำนาย: ลูกค้าท่านนี้จัดอยู่ใน **Segment กลุ่มที่ {prediction}**")
         except Exception as e:
-            # กรณีไม่มีไฟล์ .pkl หรือติด Error ให้แสดงผลจำลองป้องกันหน้าเว็บพัง
-            st.warning("⚠️ กำลังใช้ระบบทำนายจำลอง (เนื่องจากไม่พบไฟล์ model.pkl/scaler.pkl)")
+            st.warning("⚠️ ระบบทำนายจำลอง (เนื่องจากไม่พบไฟล์ model.pkl/scaler.pkl ในระบบ)")
             if monetary > 1000 and frequency > 10:
                 st.success("🎉 ผลการทำนาย: **High-Value Customer (ลูกค้าชั้นดี)**")
             else:
