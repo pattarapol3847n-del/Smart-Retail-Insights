@@ -41,17 +41,17 @@ st.markdown(tech_bg_css, unsafe_allow_html=True)
 # ==========================================
 st.sidebar.title("📌 ข้อมูลผู้พัฒนา")
 
-# ดึงรูป me.png จากใน Repository (ถ้ายังไม่อัปโหลดรูป รูปสำรองจะทำงานแทนอัตโนมัติ)
+# โหลดรูป me.png จากใน GitHub Repository
 try:
     st.sidebar.image("me.png", width=140)
-except:
+except Exception:
     st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=120)
 
-# แสดงข้อมูลโดยเน้นสีส้มเฉพาะข้อความในวงเล็บ
+# แสดงข้อมูลผู้พัฒนา เน้นตัวหนังสือใน [ ] เป็นสีส้ม
 st.sidebar.markdown("""
-**ชื่อ-นามสกุล:** [<span style="color: #FF8C00;">นายภัทรพล แก้วแท้</span>]  
-**รหัสนักศึกษา:** [<span style="color: #FF8C00;">664245029</span>]  
-**หมู่เรียน:** [<span style="color: #FF8C00;">66/43</span>]  
+**ชื่อ-นามสกุล:** [<span style="color: #FF8C00; font-weight: bold;">นายภัทรพล แก้วแท้</span>]  
+**รหัสนักศึกษา:** [<span style="color: #FF8C00; font-weight: bold;">664245029</span>]  
+**หมู่เรียน:** [<span style="color: #FF8C00; font-weight: bold;">66/43</span>]  
 """, unsafe_allow_html=True)
 
 st.sidebar.markdown("---")
@@ -75,15 +75,18 @@ st.markdown("---")
 @st.cache_data
 def load_data():
     try:
-        df = pd.read_csv("data.csv")
-    except:
-        df = pd.DataFrame({
-            'CustomerID': range(12000, 12500),
-            'Recency_Days': np.random.randint(1, 100, 500),
-            'Frequency_Transactions': np.random.randint(1, 30, 500),
-            'Monetary_TotalSpend_GBP': np.random.uniform(100, 5000, 500).round(2),
-            'Country': np.random.choice(['United Kingdom', 'Spain', 'Germany', 'France'], 500)
-        })
+        df = pd.read_csv("Online_Retail_Customer_Segmentation.csv")
+    except Exception:
+        try:
+            df = pd.read_csv("data.csv")
+        except Exception:
+            df = pd.DataFrame({
+                'CustomerID': range(12000, 12500),
+                'Recency_Days': np.random.randint(1, 100, 500),
+                'Frequency_Transactions': np.random.randint(1, 30, 500),
+                'Monetary_TotalSpend_GBP': np.random.uniform(100, 5000, 500).round(2),
+                'Country': np.random.choice(['United Kingdom', 'Spain', 'Germany', 'France'], 500)
+            })
     return df
 
 df = load_data()
@@ -168,7 +171,7 @@ elif page == "4. การประเมินและเปรียบเท
     st.pyplot(fig)
 
 # ==========================================
-# หน้าที่ 5: ทดลองการทำนาย
+# หน้าที่ 5: ทดลองการทำนาย (เชื่อมต่อกับ best_model.pkl)
 # ==========================================
 elif page == "5. ทดลองการทำนายกลุ่มลูกค้า":
     st.header("🔮 5. ระบบทำนายกลุ่มลูกค้า (Predict Customer Segment)")
@@ -183,15 +186,16 @@ elif page == "5. ทดลองการทำนายกลุ่มลูก
     if st.button("ทำนายกลุ่มลูกค้า", type="primary"):
         try:
             scaler = pickle.load(open("scaler.pkl", "rb"))
-            model = pickle.load(open("model.pkl", "rb"))
+            # เรียกใช้ชื่อไฟล์ best_model.pkl ตรงตามที่คุณมีใน GitHub
+            model = pickle.load(open("best_model.pkl", "rb"))
             
             input_data = np.array([[recency, frequency, monetary]])
             input_scaled = scaler.transform(input_data)
             prediction = model.predict(input_scaled)[0]
             
-            st.success(f"🎉 ผลการทำนาย: ลูกค้าท่านนี้จัดอยู่ใน **Segment กลุ่มที่ {prediction}**")
+            st.success(f"🎉 ผลการทำนายจากโมเดลจริง: ลูกค้าท่านนี้จัดอยู่ใน **Segment กลุ่มที่ {prediction}**")
         except Exception as e:
-            st.warning("⚠️ ระบบทำนายจำลอง (เนื่องจากไม่พบไฟล์ model.pkl/scaler.pkl ในระบบ)")
+            st.warning("⚠️ ระบบทำนายจำลอง (เนื่องจากระบบโหลดไฟล์โมเดลไม่สำเร็จ)")
             if monetary > 1000 and frequency > 10:
                 st.success("🎉 ผลการทำนาย: **High-Value Customer (ลูกค้าชั้นดี)**")
             else:
